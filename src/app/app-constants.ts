@@ -1,6 +1,6 @@
 export class AppConstants {
 
-	public static get baseServidor(): string { return "http://cwc3d.net/springrestapi" }
+	public static get baseServidor(): string { return "https://cwc3d.net/springrestapi" }
 
 	public static get baseLogin(): string { return this.baseServidor + "/login" }
 
