@@ -1,12 +1,17 @@
-const express = require ('express');
+const express = require('express');
 const path = require('path');
 
 const app = express();
 
-app.use(express.static(__dirname + '/dist/Curso-Angular-REST'));
+// Configuração para servir arquivos estáticos
+app.use(express.static(path.join(__dirname, 'dist', 'Curso-Angular-REST')));
 
-app.get('/*',function(req,res){
-    res.sendFile(path.join(__dirname + '/dist/Curso-Angular-REST/index.html'));
+// Rota para tratar todas as requisições GET
+app.get('/*', function(req, res) {
+    res.sendFile(path.join(__dirname, 'dist', 'Curso-Angular-REST', 'index.html'));
 });
 
-app.listen(process.env.PORT || 8080);
+// Inicia o servidor na porta especificada pelo ambiente ou na porta 8080
+app.listen(process.env.PORT || 8080, () => {
+    console.log(`Servidor rodando na porta ${process.env.PORT || 8080}`);
+});
